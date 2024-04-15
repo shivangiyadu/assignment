@@ -2,18 +2,29 @@ const mongoose=require("mongoose");
 
 const staffSchema=new mongoose.Schema(
     {
-        name:{
+        firstname:{
             type:String,
-            required:true,
+          
             maxlenght:50
         },
+        lastname:{
+            type:String,
+          
+            maxlenght:50
+        },
+        location:{
+            type:String,
+          
+            maxlenght:50
+        },
+
         availability:{
             type:Boolean,
-            required:true
+          
         },
         workingHours:{
             type:Array,
-            required:true
+                     
         },
         createdAt:{
             type:Date,

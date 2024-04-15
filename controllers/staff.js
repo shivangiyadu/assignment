@@ -3,9 +3,9 @@ const staff=require("../models/staff");
 
 exports.createStaff=async(req,res)=>{
     try{
-        const {name,availability,workingHours}=req.body;
+        const {firstname,lastname,location,availability,workingHours}=req.body;
 
-        const response=await staff.create({name,availability,workingHours});
+        const response=await staff.create({firstname,lastname,location,availability,workingHours});
 
         res.status(200).json({
             success:true,
@@ -91,7 +91,7 @@ exports.partialUpdateStaff=async(req,res)=>{
         const existingStaff=await staff.findById(id);
         if(!existingStaff)
         {
-                   return res.status(404).json({
+               return res.status(404).json({
                 success:false,
                 data:null,
                 message:"Staff member not found"
@@ -117,8 +117,7 @@ exports.partialUpdateStaff=async(req,res)=>{
         data:"Internal server Error",
         message:err.message
 
-      });
-    
+      });    
     }
 }
 exports.deleteStaff=async (req,res)=>{

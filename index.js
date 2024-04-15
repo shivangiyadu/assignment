@@ -1,6 +1,8 @@
+
 const express=require("express");
 const mongoose=require("mongoose");
 const bodyParser=require("body-parser");
+const apiRoutes=require("./routes/foodApp");
 const cors=require("cors");
 require("dotenv").config();
 
@@ -11,7 +13,7 @@ const DATABASE_URL=process.env.DATABASE_URL;
 app.use(cors());
 app.use(bodyParser.json());
 
-const apiRoutes=require("./routes/foodApp");
+
 app.use("/api/v1",apiRoutes);
 
 mongoose.connect(DATABASE_URL).then(()=>{
@@ -24,3 +26,4 @@ mongoose.connect(DATABASE_URL).then(()=>{
     console.error("MongoDB connection Error",error);
     process.exit(1);
 });
+
